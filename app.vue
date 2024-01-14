@@ -5,10 +5,10 @@
     
     <div class="min-h-full">
 
-      <div class="grid grid-cols-12 mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:gap-5">
+      <div class="grid grid-cols-12 mx-auto px-2 sm:px-12 lg:max-w-7xl lg:px-8 lg:gap-5">
 
         <!-- LEFT COLUMN -->
-        <div class=" hidden md:block xs:col-span-1 xl:col-span-2">
+        <div class=" xs:col-span-1 xl:col-span-2">
           <div class="sticky top-0">
             <SidebarLeft/>
           </div>
