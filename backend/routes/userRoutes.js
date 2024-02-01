@@ -12,6 +12,6 @@ const router = express.Router();
 router.post("/signup", signupUser);
 router.post("/login", loginUser);
 router.post("/logout", logoutUser);
-router.post("/follow-unfollow/:id", protectRoute, followUnfollowUser);
+router.post("/follow-unfollow/:userId", protectRoute, followUnfollowUser);
 
 module.exports = router;
