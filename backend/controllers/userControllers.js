@@ -106,9 +106,18 @@ const followUnfollowUser = async (req, res) => {
   }
 };
 
+const updateUser = async () => {
+  try {
+  } catch (err) {
+    res.status({ message: err.message });
+    console.log(err);
+  }
+};
+
 module.exports = {
   loginUser,
   signupUser,
   logoutUser,
   followUnfollowUser,
+  updateUser,
 };
