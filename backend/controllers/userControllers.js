@@ -106,8 +106,29 @@ const followUnfollowUser = async (req, res) => {
   }
 };
 
-const updateUser = async () => {
+const updateUser = async (req, res) => {
+  const { name, email, username, password, profilePic, bio } = req.body;
+  const userId = req.user._id;
+
   try {
+    let user = await User.findById(userId);
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    if (password) {
+      const salt = bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(password, salt);
+      user.password = hashedPassword;
+    }
+
+    user.name = name || user.name;
+    user.username = username || user.username;
+    user.email = email || user.email;
+    user.bio = bio || user.bio;
+    user.profilePic = profilePic || user.profilePic;
+
+    user = await user.save();
+
+    res.status(200).json({ message: "Profile updated successfully", user });
   } catch (err) {
     res.status({ message: err.message });
     console.log(err);
