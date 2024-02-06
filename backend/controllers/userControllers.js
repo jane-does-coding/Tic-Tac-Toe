@@ -72,7 +72,7 @@ const followUnfollowUser = async (req, res) => {
     if (!userToModify)
       return res.status(404).json({ message: "User not found" });
 
-    if (userId === req.user._id)
+    if (userId === req.user._id.toString())
       return res
         .status(400)
         .json({ message: "You cannot follow/unfollow yourself" });
@@ -114,6 +114,11 @@ const updateUser = async (req, res) => {
     let user = await User.findById(userId);
     if (!user) return res.status(404).json({ message: "User not found" });
 
+    if (req.params.id !== userId)
+      return res
+        .status(400)
+        .json({ message: "You cannot update other users' profiles" });
+
     if (password) {
       const salt = bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(password, salt);
@@ -135,10 +140,27 @@ const updateUser = async (req, res) => {
   }
 };
 
+const getUser = async (req, res) => {
+  const { username } = req.params;
+  try {
+    const user = await User.findOne({ username })
+      .select("-password")
+      .select("-updatedAt");
+
+    if (!user) return res.status(400).json({ message: "User not found" });
+
+    res.status(200).json(user);
+  } catch (err) {
+    res.status({ message: err.message });
+    console.log(err);
+  }
+};
+
 module.exports = {
   loginUser,
   signupUser,
   logoutUser,
   followUnfollowUser,
   updateUser,
+  getUser,
 };
