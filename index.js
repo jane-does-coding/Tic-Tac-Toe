@@ -54,12 +54,14 @@ function checkWin(board, player) {
 function gameOver(gameWon) {
   for (let index of winCombos[gameWon.index]) {
     document.getElementById(index).style.backgroundColor =
-      gameWon.player == huPlayer ? "rgba(222, 222, 222, 0.5)" : "red";
+      gameWon.player == huPlayer
+        ? "rgba(222, 222, 222, 0.5)"
+        : "rgba(203, 92, 92, 0.5)";
   }
-
-  for (let i = 0; i < cells.length; i++) {
+  for (var i = 0; i < cells.length; i++) {
     cells[i].removeEventListener("click", turnClick, false);
   }
+  declareWinner(gameWon.player == huPlayer ? "You win!" : "You lose.");
 }
 
 function declareWinner(who) {
@@ -72,17 +74,17 @@ function emptySquares() {
 }
 
 function bestSpot() {
-  return emptySqueres()[0];
+  return emptySquares()[0];
 }
 
 function checkTie() {
   if (emptySquares().length == 0) {
-    for (let i = 0; i < cells.length; i++) {
+    for (var i = 0; i < cells.length; i++) {
       cells[i].style.backgroundColor = "green";
       cells[i].removeEventListener("click", turnClick, false);
     }
-    declareWinner("Tie game!");
-    returntrue;
+    declareWinner("Tie Game!");
+    return true;
   }
   return false;
 }

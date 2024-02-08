@@ -1,3 +1,7 @@
+* {
+  font-family: sans-serif;
+}
+
 td {
   border: 2px solid #333;
   height: 150px;
@@ -35,9 +39,9 @@ table tr td:last-child {
 
 .endgame {
   display: none;
-  width: 400px;
-  background-color: rgba(222, 222, 222, 0.5);
-  backdrop-filter: blur(5px);
+  width: 600px;
+  background-color: rgba(139, 139, 139, 0.25);
+  backdrop-filter: blur(8px);
   position: absolute;
   left: 50%;
   top: 50%;
@@ -47,4 +51,20 @@ table tr td:last-child {
   font-size: 2;
   color: #333;
   border-radius: 1rem;
+}
+
+.endgame .text {
+  font-size: 2rem;
+}
+
+button {
+  border: none;
+  outline: none;
+  border-radius: 0.25rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  background-color: rgb(65, 65, 65);
+  color: whitesmoke;
+  margin-top: 2rem;
+  cursor: pointer;
 }
