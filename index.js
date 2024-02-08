@@ -61,3 +61,20 @@ function gameOver(gameWon) {
     cells[i].removeEventListener("click", turnClick, false);
   }
 }
+
+function emptySquares() {
+  return origBoard.filter((s) => typeof s == "number");
+}
+
+function bestSpot() {
+  return emptySqueres()[0];
+}
+
+function checkTie() {
+  if (emptySquares().length == 0) {
+    for (let i = 0; i < cells.length; i++) {
+      cells[i].style.backgroundColor = "green";
+      cells[i].removeEventListener("click", turnClick, false);
+    }
+  }
+}
