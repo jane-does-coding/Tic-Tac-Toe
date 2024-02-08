@@ -7,5 +7,7 @@ The AI created with the minimax algorythim logic which is impossible to beat! Do
 
 ## Live Demo
 
+[text](https://yevheniiasimaka.github.io/Tic-Tac-Toe/)
+
 
 
