@@ -4,7 +4,7 @@
 ## Live Demo
 [Unbeatable Tic Tac Toe!](https://yevheniiasimaka.github.io/Tic-Tac-Toe/)
 
-## Tech Stack
+## Tech Stack:
 [![My Skills](https://skillicons.dev/icons?i=html,css,js)](https://skillicons.dev)
 
 ## Description
